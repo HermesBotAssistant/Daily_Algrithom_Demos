@@ -20,9 +20,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from matplotlib.patches import FancyArrowPatch
+import matplotlib
 import networkx as nx
 from typing import Dict, List, Tuple
 import random
+
+# 配置中文字体（Windows 下使用 SimHei）
+matplotlib.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'DejaVu Sans']
+matplotlib.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
 
 # 导入PageRank算法
 from pagerank import PageRank
@@ -346,7 +351,7 @@ class PageRankVisualizer:
                                        norm=plt.Normalize(vmin=min(node_colors), 
                                                          vmax=max(node_colors)))
             sm.set_array([])
-            plt.colorbar(sm, label='PageRank值')
+            plt.colorbar(sm, ax=plt.gca(), label='PageRank值')
         
         plt.title('实际应用场景：网页排名可视化', fontsize=16, fontweight='bold')
         plt.axis('off')

@@ -25,9 +25,14 @@ PR(A) = (1 - d) + d * Σ(PR(Ti) / C(Ti))
 import numpy as np
 from typing import Dict, List, Set, Tuple
 import networkx as nx
+import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyArrowPatch
 import random
+
+# 配置中文字体（Windows 下使用 SimHei）
+matplotlib.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'DejaVu Sans']
+matplotlib.rcParams['axes.unicode_minus'] = False
 
 
 class PageRank:
