@@ -363,33 +363,24 @@ class PageRankVisualizer:
                                    norm=plt.Normalize(vmin=min(node_colors), 
                                                      vmax=max(node_colors)))
         sm.set_array([])
-        cbar = plt.colorbar(sm, ax=ax, label='PageRank值', shrink=0.8, pad=0.02)
+        cbar = plt.colorbar(sm, ax=ax, label='PageRank值', shrink=0.6, pad=0.02)
         cbar.ax.tick_params(labelsize=10)
         
         ax.set_title('实际应用场景：网页排名可视化', fontsize=18, fontweight='bold',
                     color=COLORS['text'], pad=20)
         ax.axis('off')
         
-        # 添加图例说明
-        legend_text = """
-图例说明：
-• 节点大小 ∝ PageRank值
-• 颜色深浅 ∝ PageRank值
-• 箭头表示链接方向
-
-页面类型：
-• 门户网站：大量入链和出链
-• 新闻网站：相互链接
-• 专业网站：高质量入链
-• 个人博客：较多出链
-• 企业网站：中等链接
-        """
+        # 添加图例说明（放在图外右侧）
+        legend_text = "图例说明：\n• 节点大小 ∝ PageRank值\n• 颜色深浅 ∝ PageRank值\n• 箭头表示链接方向\n\n页面类型：\n• 门户网站：大量入链和出链\n• 新闻网站：相互链接\n• 专业网站：高质量入链\n• 个人博客：较多出链\n• 企业网站：中等链接"
         
-        # 创建美化的图例框
-        props = dict(boxstyle='round,pad=0.8', facecolor='white', 
+        # 将图例放在图外右侧，避免遮挡节点
+        props = dict(boxstyle='round,pad=0.6', facecolor='white', 
                     alpha=0.9, edgecolor='#bdc3c7')
-        ax.text(0.02, 0.02, legend_text, transform=ax.transAxes, fontsize=10,
-               verticalalignment='bottom', bbox=props, color=COLORS['text'])
+        ax.text(1.15, 0.5, legend_text, transform=ax.transAxes, fontsize=9,
+               verticalalignment='center', bbox=props, color=COLORS['text'])
+        
+        plt.tight_layout()
+        plt.subplots_adjust(right=0.75)  # 为图例留出空间
         
         plt.tight_layout()
         plt.savefig("pagerank_real_world.png", dpi=300, bbox_inches='tight',
