@@ -406,6 +406,8 @@ def demo_visualization():
     """
     运行PageRank可视化演示
     """
+    from pagerank import PageRank  # 延迟导入避免循环引用
+    
     print("="*60)
     print("PageRank算法可视化演示")
     print("="*60)
