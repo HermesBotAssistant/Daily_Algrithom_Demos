@@ -4,6 +4,46 @@
 
 ## 项目内容
 
+### 3. 康威生命游戏 (Conway's Game of Life)
+
+由英国数学家约翰·康威 (John Conway) 于1970年提出的元胞自动机，被称为"最简单的复杂系统"。仅4条规则，就能从虚无中涌现出滑翔机、振荡器、甚至滑翔机枪——一个能永不停歇地发射"粒子"的结构工厂。
+
+#### 算法特点
+
+- **核心思想**：活细胞有2或3个邻居时存活，死细胞恰好有3个邻居时复活，其余死亡
+- **实际意义**：元胞自动机的经典范例，证明了极简规则可以产生无限复杂性；启发了复杂系统、人工生命、涌现理论等领域的研究
+- **有趣之处**：它是图灵完备的——理论上可以用活细胞和死细胞构建一台完整的计算机！
+
+#### 文件结构
+
+```
+game-of-life/
+├── game_of_life.py                # 核心算法实现（含10种经典模式）
+├── docs/
+│   └── explanation.md             # 详细说明文档
+├── visualization/
+│   └── visualize.py               # 可视化演示
+└── output/                        # 生成的图片
+```
+
+#### 快速开始
+
+1. **运行核心算法**：
+   ```bash
+   cd game-of-life
+   python game_of_life.py --mode demo        # 滑翔机枪演示
+   python game_of_life.py --mode random      # 随机模式
+   python game_of_life.py --mode patterns    # 经典模式巡礼
+   ```
+
+2. **运行可视化演示**：
+   ```bash
+   cd game-of-life/visualization
+   python visualize.py
+   ```
+
+---
+
 ### 2. Dijkstra 最短路径算法实现
 
 Dijkstra算法由荷兰计算机科学家 Edsger W. Dijkstra 于1956年在阿姆斯特丹的一家咖啡馆中构思，仅用约20分钟就完成了这个改变世界的算法。它是GPS导航、网络路由、游戏寻路的核心基础。
