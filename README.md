@@ -4,7 +4,46 @@
 
 ## 项目内容
 
-### 3. 康威生命游戏 (Conway's Game of Life)
+### 4. A* 寻路算法 (A* Pathfinding Algorithm)
+
+A* 是游戏开发和机器人导航中最常用的寻路算法，由 Peter Hart、Nils Nilsson 和 Bertram Raphael 于 1968 年在斯坦福研究所发明。它是 Dijkstra 算法的"带指南针"版本——通过启发式估计优先探索更有希望的方向。
+
+#### 算法特点
+
+- **核心思想**：f(n) = g(n) + h(n)，综合已走代价和剩余估计，总是在最有希望的方向搜索
+- **实际意义**：几乎所有游戏的 NPC 寻路、地图导航（Google Maps）、机器人路径规划都基于此算法
+- **有趣之处**：A* 被证明是"最优的最优算法"——在使用相同启发函数的所有算法中，它探索的节点数最少！
+
+#### 文件结构
+
+```
+astar/
+├── astar.py                       # 核心算法实现（支持多种启发函数）
+├── docs/
+│   └── explanation.md             # 详细说明文档
+└── visualization/
+    └── visualize.py               # 可视化演示（迷宫寻路、A* vs Dijkstra 对比）
+```
+
+#### 快速开始
+
+1. **运行核心算法**：
+   ```bash
+   cd astar
+   python astar.py --mode demo          # 随机网格寻路
+   python astar.py --mode maze          # 迷宫寻路
+   python astar.py --mode compare       # 启发函数对比
+   ```
+
+2. **运行可视化演示**：
+   ```bash
+   cd astar/visualization
+   python visualize.py
+   ```
+
+---
+
+### 3. 康威生命游戏
 
 由英国数学家约翰·康威 (John Conway) 于1970年提出的元胞自动机，被称为"最简单的复杂系统"。仅4条规则，就能从虚无中涌现出滑翔机、振荡器、甚至滑翔机枪——一个能永不停歇地发射"粒子"的结构工厂。
 
